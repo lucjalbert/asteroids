@@ -38,6 +38,16 @@ def main():
             if hit == True:
                 print("Game Over!")
                 return
+        
+        for asteroid in asteroids:
+            for shot in shots:
+                hit = asteroid.collision(shot)
+                if hit == True:
+                    asteroid.split()
+                    shot.kill()
+                    hit = False
+                else:
+                    hit = False
     
         screen.fill((0, 0, 0))
 
